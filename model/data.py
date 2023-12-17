@@ -14,7 +14,7 @@ from data_utils import pad_nt_matrix_roberta, pad_nt_matrix_xlnet
 
 
 class ClassificationData(pl.LightningDataModule):
-    def __init__(self, basedir: str, tokenizer_name: str, batch_size: int, num_workers: int = 16):
+    def __init__(self, basedir: str, tokenizer_name: str, batch_size: int, num_workers: int = 4):
         super().__init__()
         self.basedir = basedir
         self.batch_size = batch_size

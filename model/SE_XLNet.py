@@ -2,15 +2,16 @@ from argparse import ArgumentParser
 
 import torch
 import torch.nn as nn
-from pytorch_lightning.core.lightning import LightningModule
+import pytorch_lightning as pl
 from torch.optim import AdamW
 from transformers import AutoModel, AutoConfig, RobertaConfig, RobertaModel
 from transformers.modeling_utils import SequenceSummary
 
+
 from model_utils import TimeDistributed
 
 
-class SEXLNet(LightningModule):
+class SEXLNet(pl.LightningModule):
     def __init__(self, hparams):
         super().__init__()
         # self.hparams = hparams
@@ -102,6 +103,7 @@ class SEXLNet(LightningModule):
 
         logits = self.classifier(sentence_cls)
 
+            
         lil_logits = self.lil(hidden_state=hidden_state,
                               nt_idx_matrix=padded_ndx_tensor)
         lil_logits_mean = torch.mean(lil_logits, dim=1)
