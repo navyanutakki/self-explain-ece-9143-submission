@@ -1,11 +1,11 @@
 from typing import Dict, List
-
+import nltk
 import benepar
 import numpy as np
 
 from transformers import RobertaTokenizer, XLNetTokenizer, DistilBertTokenizer
 from nltk.tree import ParentedTree
-
+benepar.download('benepar_en3')
 
 class ParseTree():
     def __init__(self, tokenizer_name, cached_parses=None):
