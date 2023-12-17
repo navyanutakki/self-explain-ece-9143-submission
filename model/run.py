@@ -8,6 +8,9 @@ from argparse import ArgumentParser
 import resource
 from data import ClassificationData
 from SE_XLNet import SEXLNet
+import torch
+from torch.profiler import profile, record_function, ProfilerActivity
+import time
 
 def get_train_steps(dm):
   total_devices = args.num_gpus * args.num_nodes
@@ -41,6 +44,7 @@ parser.add_argument("--model_name", default='xlnet-base-cased', help="Model to u
 parser.add_argument("--gamma", default=0.01, type=float, help="Gamma parameter")
 parser.add_argument("--lamda", default=0.01, type=float, help="Lamda Parameter")
 parser.add_argument("--topk", default=100, type=int,help="Topk GIL concepts")
+parser.add_argument("--dp", default=False, type=bool, help="Data Parallel")
 
 parser = pl.Trainer.add_argparse_args(parser)
 parser = SEXLNet.add_model_specific_args(parser)
@@ -54,13 +58,24 @@ logging.basicConfig(level=logging.INFO)
 
 # Step 1: Init Data
 logging.info("Loading the data module")
-dm = ClassificationData(basedir=args.dataset_basedir, tokenizer_name=args.model_name, batch_size=args.batch_size)
 
+start_data_loading_timer = time.perf_counter()
+dm = ClassificationData(basedir=args.dataset_basedir, tokenizer_name=args.model_name, batch_size=args.batch_size)
+end_data_loading_timer = time.perf_counter()
+
+data_loading_time = end_data_loading_timer - start_data_loading_timer
+
+print(f"Data Loading time: {data_loading_time} sec")
 # Step 2: Init Model
 logging.info("Initializing the model")
 model = SEXLNet(hparams=args)
 model.hparams.warmup_steps = int(get_train_steps(dm) * model.hparams.warmup_prop)
 lr_monitor = LearningRateMonitor(logging_interval='step')
+
+if args.dp==True and args.num_gpus == 2:
+        model = torch.nn.DataParallel(model, device_ids=[0, 1])
+
+        
 
 # Step 3: Start
 logging.info("Starting the training")
@@ -73,5 +88,24 @@ checkpoint_callback = ModelCheckpoint(
 )
 
 trainer = pl.Trainer.from_argparse_args(args, callbacks=[checkpoint_callback], val_check_interval=0.5, gradient_clip_val=args.clip_grad, track_grad_norm=2)
-trainer.fit(model, dm)
+
+
+def trace_handler(prof):
+    output = prof.key_averages().table(sort_by="self_cuda_time_total")
+    print(output)
+    prof.export_chrome_trace("/project/trace_" + str(prof.step_num) + ".json")
+
+
+with profile(activities=[
+        ProfilerActivity.CPU, ProfilerActivity.CUDA], record_shapes=True,  schedule=torch.profiler.schedule(
+        wait=1,
+        warmup=1,
+        active=2), on_trace_ready=trace_handler) as prof:
+    for idx in range(5):
+        trainer.fit(model, dm)
+        prof.step()
+
+#, on_trace_ready=trace_handler
+
+prof.export_chrome_trace('project/trace.json')
 # trainer.test()
