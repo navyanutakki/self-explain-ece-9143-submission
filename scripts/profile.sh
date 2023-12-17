@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name=project
+#SBATCH --job-name=profile
 #SBATCH --output=%x.out
 #SBATCH --mem=128GB
-#SBATCH --time=8:00:00
+#SBATCH --time=4:00:00
 #SBATCH --gres=gpu:1
 
 
