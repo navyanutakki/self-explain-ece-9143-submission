@@ -1,4 +1,4 @@
-# Benchmarking RoBERTa and Self-Explaining RoBERTa on SST-2 with Data Parallelism 
+# Benchmarking RoBERTa and Self-Explaining RoBERTa with Data Parallelism 
 
 This submission is based on the [SelfExplain framework](https://arxiv.org/abs/2103.12279) and code by Rajagopal et al. (2021) 
 
@@ -58,7 +58,7 @@ sh scripts/run_self_explain.sh
 ```
 
 
-## Submitted by
+## Submission by
 
 This is a submission for **ECE-GY 9143** **High Performance Machine Learning** instructed by **Parijat Dube** at New York University. 
 
