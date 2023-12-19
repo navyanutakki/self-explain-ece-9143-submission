@@ -12,7 +12,7 @@ export TOKENIZERS_PARALLELISM=false
 
 # for RoBERTa
 
-singularity exec --nv --overlay /scratch/nn2382/my_env/overlay-25GB-500K.ext3:ro \
+singularity exec --nv --overlay /scratch/$USER/my_env/overlay-25GB-500K.ext3:ro \
     /scratch/work/public/singularity/cuda11.6.124-cudnn8.4.0.27-devel-ubuntu20.04.4.sif /bin/bash -c "source /ext3/env.sh; \
     python model/run.py --dataset_basedir data/RoBERTa-SST-2 \
         --lr 2e-5 --max_epochs 5 --gpus 4 \
