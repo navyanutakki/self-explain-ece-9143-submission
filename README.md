@@ -1,6 +1,6 @@
 # Benchmarking RoBERTa and Self-Explaining RoBERTa with Data Parallelism 
 
-This submission is based on the [SelfExplain framework](https://arxiv.org/abs/2103.12279) and code by Rajagopal et al. (2021) 
+This submission is based on the **[SelfExplain framework](https://arxiv.org/abs/2103.12279)** and code by **Rajagopal et al. (2021)** 
 
 ## Usage
 
@@ -71,4 +71,4 @@ sh scripts/run_self_explain.sh
 
 This is a submission for **ECE-GY 9143** **High Performance Machine Learning** instructed by **Parijat Dube** at New York University. 
 
-Submission by: <br>Gauri Gupta (gg2751) <br>Navya Sree Nutakki (nn2382)
+Submission by: <br>**Gauri Gupta** (gg2751) <br>**Navya Sree Nutakki** (nn2382)
