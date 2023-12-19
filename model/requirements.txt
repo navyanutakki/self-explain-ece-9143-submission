@@ -22,7 +22,7 @@ pytorch_lightning == 1.1.2
 # gnn_qa/qa_model.py: 4,8,9,12
 # gnn_qa/run.py: 3
 # gnn_qa/utils.py: 1,2
-torch == 1.6.0
+torch == 1.8.0
 
 # gnn_qa/ignn.py: 4,6,9
 # gnn_qa/qa_model.py: 2,5,13
