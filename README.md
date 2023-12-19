@@ -59,6 +59,13 @@ sh scripts/run_self_explain.sh
 
 ## Results
 
+| # of GPUs | RoBERTa base |        | Self-Explaining RoBERTa |        |
+|-----------|--------------|--------|-------------------------|--------|
+|           | CPU time (s) | CUDA time (s) | CPU time (s)           | CUDA time (s) |
+| 1         |              |        | 23.715                  | 0.822  |
+| 2         |              |        | 22.892                  | 0.851  |
+| 4         |              |        | 6.016                   | 0.852  |
+
 
 ## Submission by
 
