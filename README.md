@@ -50,7 +50,7 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 
 **Self-Explain**
 
-Install all the required libraries as given in the requirements.txt. After downloading train.tsv, test,tsv and dev.tsv from the RoBERTa-SST-2 from data, submit the batch file for preprocessing as sbatch run_preprocessing.sh. After the preproceesing submit a batch file according to the required hardware configurations.
+Install all the required libraries as given in the requirements.txt. After downloading train.tsv, test,tsv and dev.tsv from the RoBERTa-SST-2 from data, submit the batch file for preprocessing as ** sbatch run_preprocessing.sh **. After the preproceesing submit a batch file according to the required hardware configurations.
 
 
 
