@@ -2,7 +2,8 @@
 
 This submission is based on the **[SelfExplain framework](https://arxiv.org/abs/2103.12279)** and code by **Rajagopal et al. (2021)** 
 <br>
-**Overview**
+**Overview:**
+
 This project implements benchmarking, profiling and optimizing the performance of RoBERTa and Self-Explain RoBERTa models. We worked on different hardware configurations which includes single GPU and multiple GPUs. We obtained the hardware configuration with better performance and optimized its perfromance using PyTorch DataParallel. 
 
 
