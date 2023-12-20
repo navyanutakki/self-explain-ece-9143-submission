@@ -9,11 +9,10 @@ This project implements benchmarking, profiling and optimizing the performance o
 
 We initially trained the Self-Explain model on 1 GPU and profiled the training part along with calculating data loading time. We then repeated the same with 2 GPUs and 4 GPUs. Self-Explain performed better with 2 GPUs. There are 16 workers for these variations but now we changed the number of 4 workers to 4 and trained the Self-explain model on 2 GPUs. The model has taken less time to train with 2 GPUs and 4 workers. We then used PyTorch DataParallel to further reduce the time.
 ## Code Structure
+```
 
 ├── ...
-
 ├── data # data files for this project
-
 │ ├── RoBERTa-SST-2 # contains SST-2 traina dn test data along with files created aftre preprocessing
 │ 
 └── model # model code
@@ -32,7 +31,7 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 │   ├── ...
 │   └── ...  
 
-
+```
 
 
 
