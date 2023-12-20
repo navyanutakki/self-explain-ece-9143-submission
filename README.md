@@ -11,7 +11,9 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 ## Code Structure
 
 ├── ...
+
 ├── data # data files for this project
+
 │ ├── RoBERTa-SST-2 # contains SST-2 traina dn test data along with files created aftre preprocessing
 │ 
 └── model # model code
