@@ -23,9 +23,9 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 │   ├── requirements.txt
 │
 └── outputs
-│   ├── GoogleTranslate.mov    #Google Translate vs translator evaluation for certain inputs
+│   ├──     
 │
-└── Logs
+└── preprocessing
 │   ├── ...
 │   ├── ...
 │   └── ...  
