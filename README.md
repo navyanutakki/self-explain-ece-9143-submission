@@ -36,11 +36,14 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 │   ├── store_parse_trees.py
 │   ├── utils.py
 └── scripts
-│   ├──
-│   ├──
-│   ├──
-│   ├──
-│   ├──
+│   ├──profile.sh
+│   ├──profile_2gpus.sh
+│   ├──profile_4gpus.sh
+│   ├──profile_4workers.sh
+│   ├──profile_4workers_dp.sh
+│   ├──run_preprocessing.sh
+│   ├──run_self_explain.sh
+└── requirements.txt
 
 ```
 
