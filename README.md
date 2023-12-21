@@ -89,6 +89,7 @@ sbatch run_preprocessing.sh
 | 2         |   112.506  | 48.374 | 6.611                  | 0.813  |
 | 4         |   87.059   | 68.599 | 6.016                   | 0.852  |
 
+CPU time and CUDA time are higher for RoBERTa base wtih 4 GPUs when compared to Self-Explain model. From the profiling results we observed that aten::mm and aten::mm in RoBERTa-base are significantly taking higher CUDA time 28.593s and 20.248s respectively whereas they are 1.191ms and 63.660ms respectively in Self-Explain with 4 GPUs.
 
 ## Submission by
 
