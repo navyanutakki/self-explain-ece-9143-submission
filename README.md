@@ -7,13 +7,13 @@ This submission is based on the **[SelfExplain framework](https://arxiv.org/abs/
 This project implements benchmarking, profiling and optimizing the performance of RoBERTa and Self-Explain RoBERTa models. We worked on different hardware configurations which includes single GPU and multiple GPUs. We obtained the hardware configuration with better performance and optimized its perfromance using PyTorch DataParallel. 
 ## Implementation
 
-We initially trained the Self-Explain model on 1 GPU and profiled the training part along with calculating data loading time. We then repeated the same with 2 GPUs and 4 GPUs. Self-Explain performed better with 2 GPUs. There are 16 workers for these variations but now we changed the number of workers to 4 and trained the Self-explain model on 2 GPUs. The model has taken less time to train with 2 GPUs and 4 workers. We then used PyTorch DataParallel to further reduce the time. 
+We initially trained the Self-Explain model on 1 GPU and profiled the training part along with calculating data loading time. We then repeated the same with 2 GPUs and 4 GPUs. Self-Explain performed better with 2 GPUs. There are 16 workers for these variations but now we changed the number of workers to 4 and trained the Self-explain model on 2 GPUs. The model has taken less time to train with 2 GPUs and 4 workers. We then used PyTorch DataParallel to further reduce the time. We also used PyTorch DataParallel on 2 GPUs and 16 workers but 2 GPUs and 4 workers has given better performance with DataParallel.
 ## Code Structure
 ```
 
 ├── ...
 ├── data # data files for this project
-│ ├── RoBERTa-SST-2 # contains SST-2 train and test data along with files created aftre preprocessing
+│ ├── RoBERTa-SST-2 # contains SST-2 train and test data along with files created after preprocessing
 │ 
 └── model # model code
 │   ├── SE_XLNet.py #self-explain model with LIL and GIL layers
@@ -24,10 +24,13 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 │   ├── requirements.txt
 │
 └── outputs
-│   ├──
-│   ├──
-│   ├──
-│
+│   ├── profile.out
+│   ├── profile_16workers_dp.out
+│   ├── profile_2gpus.out
+│   ├── profile_4gpus.out
+│   ├── profile_4workers.out
+│   ├── profile_4workers_dp.out
+│   ├── project.out
 └── preprocessing
 │   ├── add_ngram_dist.py
 │   ├── build_concept_store.py #building the concept store to use with LIL and GIL 
