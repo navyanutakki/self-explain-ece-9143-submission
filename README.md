@@ -31,6 +31,7 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 │   ├── profile_4workers.out
 │   ├── profile_4workers_dp.out
 │   ├── project.out
+│
 └── preprocessing
 │   ├── add_ngram_dist.py
 │   ├── build_concept_store.py #building the concept store to use with LIL and GIL 
@@ -38,11 +39,13 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 │   ├── process_trec_dataset.py
 │   ├── store_parse_trees.py
 │   ├── utils.py
+│
 └── roberta-base
 │   ├── data_sst2.py
 │   ├── models.py 
 │   ├── run_Roberta_model.py  
 │   ├── utils.py
+│
 └── scripts
 │   ├──profile.sh    #profiling self-explain on 1 GPU and data loading with 16 workers
 │   ├──profile_2gpus.sh #profiling self-explain on 2 GPUs and data loading with 16 workers
@@ -52,6 +55,7 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 │   ├──profile_16workers_dp.sh #profiling with 2 GPUs, data loading with 16 workers and optimizing with PyTorch DataParallel
 │   ├──run_preprocessing.sh  #preprocessing the training data
 │   ├──run_self_explain.sh #training the model for 5 epochs
+│
 └── requirements.txt #contains all the libraries that are required to download
 
 ```
