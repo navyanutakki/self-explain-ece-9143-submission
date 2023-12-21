@@ -13,14 +13,14 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 
 ├── ...
 ├── data # data files for this project
-│ ├── RoBERTa-SST-2 # contains SST-2 traina dn test data along with files created aftre preprocessing
+│ ├── RoBERTa-SST-2 # contains SST-2 train and test data along with files created aftre preprocessing
 │ 
 └── model # model code
-│   ├── SE_XLNet.py
-│   ├── data.py
-│   ├── data_utils.py
-│   ├── infer_model.py
-│   ├── model_utils.py
+│   ├── SE_XLNet.py #self-explain model with LIL and GIL layers
+│   ├── data.py     #loads the dataset
+│   ├── data_utils.py #pads the matrix with zeros for RoBERTa model
+│   ├── infer_model.py #model evaluation
+│   ├── model_utils.py 
 │   ├── requirements.txt
 │
 └── outputs
