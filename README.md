@@ -30,7 +30,7 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 │   ├── profile_4gpus.out
 │   ├── profile_4workers.out
 │   ├── profile_4workers_dp.out
-│   ├── project.out
+│   ├── roberta-base.out
 │
 └── preprocessing
 │   ├── add_ngram_dist.py
@@ -53,6 +53,7 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 │   ├──profile_4workers.sh #profiling self-explain on 2 GPUs and data loading with 4 workers
 │   ├──profile_4workers_dp.sh #profiling with 2 GPUs, data loading with 4 workers and optimizing with PyTorch DataParallel
 │   ├──profile_16workers_dp.sh #profiling with 2 GPUs, data loading with 16 workers and optimizing with PyTorch DataParallel
+│   ├──roberta.sh #profiling the RoBERTa base on 4 GPUs
 │   ├──run_preprocessing.sh  #preprocessing the training data
 │   ├──run_self_explain.sh #training the model for 5 epochs
 │
