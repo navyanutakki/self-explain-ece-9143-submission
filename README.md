@@ -13,7 +13,7 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 
 ├── ...
 ├── data # data files for this project
-│ ├── RoBERTa-SST-2 # contains SST-2 train and test data along with files created after preprocessing
+│   ├── RoBERTa-SST-2 # contains SST-2 train and test data along with files created after preprocessing
 │ 
 └── model # model code
 │   ├── SE_XLNet.py #self-explain model with LIL and GIL layers
