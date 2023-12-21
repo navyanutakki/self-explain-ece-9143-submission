@@ -38,6 +38,11 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 │   ├── process_trec_dataset.py
 │   ├── store_parse_trees.py
 │   ├── utils.py
+└── roberta-base
+│   ├── data_sst2.py
+│   ├── models.py 
+│   ├── run_Roberta_model.py  
+│   ├── utils.py
 └── scripts
 │   ├──profile.sh    #profiling self-explain on 1 GPU and data loading with 16 workers
 │   ├──profile_2gpus.sh #profiling self-explain on 2 GPUs and data loading with 16 workers
@@ -54,7 +59,11 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 
 **Self-Explain**
 
-Install all the required libraries as given in the requirements.txt. After downloading train.tsv, test,tsv and dev.tsv from the RoBERTa-SST-2 from data, submit the batch file for preprocessing as sbatch run_preprocessing.sh. After the preproceesing submit a batch file according to the required hardware configurations.
+Install all the required libraries as given in the requirements.txt. After downloading train.tsv, test,tsv and dev.tsv from the RoBERTa-SST-2 from data, submit the batch file for preprocessing as sbatch run_preprocessing.sh. After the preprocessing submit a batch file according to the required hardware configurations.
+
+**RoBERTa**
+
+Submit the roberta.sh batch file which has 4 GPUs. To run the RoBERTa base on 1 or 2 GPUs, change the number of GPUs respectively.
 
 ``` shell
 pip install -r requirements.txt
