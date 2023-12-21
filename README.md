@@ -30,20 +30,20 @@ We initially trained the Self-Explain model on 1 GPU and profiled the training p
 │
 └── preprocessing
 │   ├── add_ngram_dist.py
-│   ├── build_concept_store.py
-│   ├── constituency_parse.py
+│   ├── build_concept_store.py #building the concept store to use with LIL and GIL 
+│   ├── constituency_parse.py  #generating the parse tree for the inputs
 │   ├── process_trec_dataset.py
 │   ├── store_parse_trees.py
 │   ├── utils.py
 └── scripts
-│   ├──profile.sh
-│   ├──profile_2gpus.sh
-│   ├──profile_4gpus.sh
-│   ├──profile_4workers.sh
-│   ├──profile_4workers_dp.sh
-│   ├──run_preprocessing.sh
-│   ├──run_self_explain.sh
-└── requirements.txt
+│   ├──profile.sh    #profiling self-explain on 1 GPU and data loading with 16 workers
+│   ├──profile_2gpus.sh #profiling self-explain on 2 GPUs and data loading with 16 workers
+│   ├──profile_4gpus.sh #profiling self-explain on 2 GPUs and data loading with 16 workers
+│   ├──profile_4workers.sh #profiling self-explain on 2 GPUs and data loading with 4 workers
+│   ├──profile_4workers_dp.sh #profiling with 2 GPUs, data loading with 4 workers and optimizing with PyTorch DataParallel
+│   ├──run_preprocessing.sh  #preprocessing the training data
+│   ├──run_self_explain.sh #training the model for 5 epochs
+└── requirements.txt #contains all the libraries that are required to download
 
 ```
 ## Code Execution
