@@ -67,8 +67,8 @@ sbatch run_preprocessing.sh
 | # of GPUs | RoBERTa base | RoBERTa base | Self-Explaining RoBERTa | Self-Explaining RoBERTa |
 |-----------|--------------|--------|-------------------------|--------|
 |           | CPU time (s) | CUDA time (s) | CPU time (s)           | CUDA time (s) |
-| 1         |      86.98 |  68.703  | 23.715                  | 0.822  |
-| 2         |   112.506  | 48.374 | 22.892                  | 0.851  |
+| 1         |      86.98 |  68.703  | 24.002                  | 0.822  |
+| 2         |   112.506  | 48.374 | 6.611                  | 0.813  |
 | 4         |   87.059   | 68.599 | 6.016                   | 0.852  |
 
 
