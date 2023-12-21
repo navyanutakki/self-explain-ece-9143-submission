@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=project
+#SBATCH --job-name=roberta-base
 #SBATCH --output=%x.out
 #SBATCH --mem=128GB
 #SBATCH --time=8:00:00
